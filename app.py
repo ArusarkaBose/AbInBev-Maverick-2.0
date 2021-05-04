@@ -34,7 +34,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('off_reg.pickle.dat', "wb") as f :
+    with open('/tmp/off_reg.pickle.dat', "wb") as f :
       f.write(data)
 
     self.regressor_off=pickle.load(open("off_reg.pickle.dat", "rb"))
@@ -44,7 +44,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('off_clf1.pickle.dat', "wb") as f :
+    with open('/tmp/off_clf1.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf_off=pickle.load(open("off_clf1.pickle.dat", "rb"))
@@ -54,7 +54,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('off_clf2.pickle.dat', "wb") as f :
+    with open('/tmp/off_clf2.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf2_off=pickle.load(open("off_clf2.pickle.dat", "rb"))
@@ -64,7 +64,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('on_reg.pickle.dat', "wb") as f :
+    with open('/tmp/on_reg.pickle.dat', "wb") as f :
       f.write(data)
 
     self.regressor_on=pickle.load(open("on_reg.pickle.dat", "rb"))
@@ -74,7 +74,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('on_clf1.pickle.dat', "wb") as f :
+    with open('/tmp/on_clf1.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf_on=pickle.load(open("on_clf1.pickle.dat", "rb"))
@@ -84,7 +84,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('on_clf2.pickle.dat', "wb") as f :
+    with open('/tmp/on_clf2.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf2_on=pickle.load(open("on_clf2.pickle.dat", "rb"))
