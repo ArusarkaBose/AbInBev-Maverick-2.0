@@ -12,3 +12,4 @@ sklearn==0.0
 xgboost==0.90
 pylint==2.4.3
 xlrd==2.0.1
+openpyxl==3.0.7
