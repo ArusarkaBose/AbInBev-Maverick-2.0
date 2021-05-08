@@ -34,7 +34,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('/tmp/off_reg.pickle.dat', "wb") as f :
+    with open('off_reg.pickle.dat', "wb") as f :
       f.write(data)
 
     self.regressor_off=pickle.load(open("off_reg.pickle.dat", "rb"))
@@ -44,7 +44,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('/tmp/off_clf1.pickle.dat', "wb") as f :
+    with open('off_clf1.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf_off=pickle.load(open("off_clf1.pickle.dat", "rb"))
@@ -54,7 +54,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('/tmp/off_clf2.pickle.dat', "wb") as f :
+    with open('off_clf2.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf2_off=pickle.load(open("off_clf2.pickle.dat", "rb"))
@@ -64,7 +64,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('/tmp/on_reg.pickle.dat', "wb") as f :
+    with open('on_reg.pickle.dat', "wb") as f :
       f.write(data)
 
     self.regressor_on=pickle.load(open("on_reg.pickle.dat", "rb"))
@@ -74,7 +74,7 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('/tmp/on_clf1.pickle.dat', "wb") as f :
+    with open('on_clf1.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf_on=pickle.load(open("on_clf1.pickle.dat", "rb"))
@@ -84,15 +84,16 @@ class Infer:
     u = urllib.request.urlopen(url)
     data = u.read()
     u.close()
-    with open('/tmp/on_clf2.pickle.dat', "wb") as f :
+    with open('on_clf2.pickle.dat', "wb") as f :
       f.write(data)
 
     self.clf2_on=pickle.load(open("on_clf2.pickle.dat", "rb"))
    
-    url = 'https://drive.google.com/uc?id=13celyxcevwAaKGcNXjJhHZAHMp0Yl_u8'
-    output = 'data.xlsx'
-    gdown.download(url, output, quiet=False)
-    orig = pd.read_excel('data.xlsx',engine='openpyxl')
+    # url = 'https://drive.google.com/uc?id=13celyxcevwAaKGcNXjJhHZAHMp0Yl_u8'
+    # output = 'data.xlsx'
+    # gdown.download(url, output, quiet=False)
+    # orig = pd.read_csv('data_mod.csv')
+    orig=pd.read_excel('data_mod.xlsx',engine='openpyxl')
     orig=orig.drop(['OnInvoice Discount(LCU)','OffInvoice Discount(LCU)','Discount_Total'],axis=1)
 
     for i in range(len(orig)):
@@ -132,9 +133,9 @@ class Infer:
     self.drop()
     self.one_hot()
     self.label_encode()
-    # self.df=self.df.iloc[0:1,:]
+    #self.df=self.df.iloc[0:1,:]
 
-    # self.cl_preds_off=self.clf_off.predict(self.df)
+    #self.cl_preds_off=self.clf_off.predict(self.df)
     self.cl2_preds_off=self.clf2_off.predict(self.df)
     self.preds_off=self.regressor_off.predict(self.df)
 
